@@ -1,0 +1,77 @@
+{
+  "name": "yassinedoghri/tempest-icons",
+  "description": "A Tempest library providing a convenient `icon(…)` function for rendering SVG icons with php-icons.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yassine Doghri",
+      "email": "yassine@doghri.fr"
+    }
+  ],
+  "keywords": [
+    "tempest",
+    "icons",
+    "iconify",
+    "php-icons"
+  ],
+  "autoload": {
+    "psr-4": {
+      "TempestIcons\\": "src"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=8.3",
+    "yassinedoghri/php-icons": "^v1.1.0",
+    "tempest/core": "^v1.0.0-alpha2"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.12.7",
+    "rector/rector": "^1.2.8",
+    "symplify/coding-standard": "^12.2.3",
+    "symplify/easy-coding-standard": "^12.3.6",
+    "pestphp/pest": "^v3.4.1",
+    "pestphp/pest-plugin-type-coverage": "^v3.1.0"
+  },
+  "scripts": {
+    "dev": "./example/tempest serve 0.0.0.0:8000",
+    "phpstan": "vendor/bin/phpstan analyse --ansi",
+    "rector": "vendor/bin/rector process --dry-run --ansi",
+    "rector:fix": "vendor/bin/rector process --ansi",
+    "style": "vendor/bin/ecs check --ansi",
+    "style:fix": "vendor/bin/ecs check --fix --ansi",
+    "pest": "./vendor/bin/pest --bail --colors=always",
+    "pest:parallel": "./vendor/bin/pest --colors=always --parallel",
+    "pest:profiling": "./vendor/bin/pest --colors=always --profile",
+    "pest:coverage": "./vendor/bin/pest --colors=always --parallel --coverage",
+    "pest:type-coverage": "./vendor/bin/pest --colors=always --type-coverage --min=95",
+    "test": [
+      "@style",
+      "@phpstan",
+      "@rector",
+      "@pest:type-coverage",
+      "@pest:parallel"
+    ],
+    "core:update": [
+      "composer update --no-interaction --prefer-stable",
+      "composer bump --ansi",
+      "composer validate --strict --ansi",
+      "composer audit --ansi"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    },
+    "sort-packages": true
+  }
+}
