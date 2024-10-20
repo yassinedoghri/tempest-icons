@@ -40,8 +40,8 @@ vendor/bin/php-icons init
 
 ### 3. Usage
 
-Use the `icon(string $iconKey, array $attributes)` anywhere in your View files
-to render SVG icons:
+Use the `icon(string $iconKey, array $attributes)` function anywhere in your
+View files to render SVG icons:
 
 ```php
 <?= icon('material-symbols:bolt') ?>

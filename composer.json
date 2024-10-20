@@ -43,7 +43,7 @@
     "pestphp/pest-plugin-type-coverage": "^v3.1.0"
   },
   "scripts": {
-    "dev": "./example/tempest serve 0.0.0.0:8000",
+    "dev": "cd example && ./tempest serve 0.0.0.0:8000",
     "phpstan": "vendor/bin/phpstan analyse --ansi",
     "rector": "vendor/bin/rector process --dry-run --ansi",
     "rector:fix": "vendor/bin/rector process --ansi",

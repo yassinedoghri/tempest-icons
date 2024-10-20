@@ -14,9 +14,7 @@ function icon(string $iconKey, array $attributes = []): PHPIcons
 {
     $phpIcons = get(PHPIcons::class);
 
-    if ($attributes !== []) {
-        $phpIcons->attributes($attributes);
-    }
-
-    return $phpIcons->icon($iconKey);
+    return $phpIcons
+        ->icon($iconKey)
+        ->attributes($attributes);
 }
